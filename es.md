@@ -10,9 +10,9 @@ Una vez verificado que tengamos la descarga completa procedemos a hacer dump de 
 Una vez dentro de la carpeta de destino tenderemos la siguiente estructira de archivos
 
     ├── 📂files
-     		   ├── 📂D (Datos descargados)
+     		    ├── 📂D (Datos descargados)
      		    |		└── 📂 ...
-    			├── 📂il2cpp (Recursos de Unity junto al global-metadata.dat)
+    		    ├── 📂il2cpp (Recursos de Unity junto al global-metadata.dat)
     		    ├── 📂M (Pos. BDs encriptada con un -journal)
     		    └── 📂Unity (Nada relevante solo cache de Telemetria)
 				
