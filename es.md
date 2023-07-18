@@ -2,6 +2,7 @@
 Como algunos sabran el juego tiene una encriptacion nula en la mayoria de assets por lo cual es facil sacar algunas texturas, videos, audio y scripst de unity de forma sencilla.
 
 Primero se necesitan los assets del juego que estan ubicados en `/sdcard/Android/data/com.oddno.lovelive/files` pero el juego tiene una descarga ligera/secuencial predeterminada por lo que hay que cambiar a descarga completa.
+
 Una vez verificado que tengamos la descarga completa procedemos a hacer dump de los archivos, solo necesitaremos `adb` para eso.
 
 `adb pull /sdcard/Android/data/com.oddno.lovelive/files carpeta-de-destino`
