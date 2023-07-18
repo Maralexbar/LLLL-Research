@@ -50,7 +50,7 @@ Las dos primeras letras o dígitos del nombre de cada archivo coinciden con la s
 Hasta el momento he encontrado 4 tipos diferentes de archivos gracias al encabezado o número mágico.
 
 - Archivos de Video Cri (USM) empiezan con el encabezado: `43 52 49 44` (`CRID`)
-- Archivos de Audio Cri (HCA) contenidos en AFS2, encabezado: `41 46 53 02` (`AFS2`)
+- Archivos de Audio Cri (HCA) contenidos en AFS2, encabezado: `41 46 53 32` (`AFS2`)
 - Archivos CPK con encabezado: `40 55 54 46` (`@UTF`)
 - Archivos UnityFS, pero con 2 bytes en el encabezado: `AB 00`, los cuales deben ser removidos para su uso correcto.
 
@@ -68,7 +68,7 @@ Se han desarrollado una serie de scripts en PowerShell para clasificar los archi
 ```
 - Para archivos AFS2 (.afs2)
 ```powershell
-Get-ChildItem -File -Recurse  |  ForEach-Object {if (-join(Get-Content -Encoding Byte -TotalCount 4 -Path $_.FullName | ForEach-Object { $_.ToString("X2") }) -eq "41465302" ) {Rename-Item -Path $_.FullName -NewName ($_.BaseName + ".afs2") -Force ; Write-Host "Archivo procesado: $($_.FullName)"}}
+Get-ChildItem -File -Recurse  |  ForEach-Object {if (-join(Get-Content -Encoding Byte -TotalCount 4 -Path $_.FullName | ForEach-Object { $_.ToString("X2") }) -eq "41465332" ) {Rename-Item -Path $_.FullName -NewName ($_.BaseName + ".afs2") -Force ; Write-Host "Archivo procesado: $($_.FullName)"}}
 ```
 - Para archivos de UnityFS (.unity)
 ```powershell
