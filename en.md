@@ -51,7 +51,7 @@ The first two letters or digits of the filename correspond to the respective sub
 So far, I have identified four different types of files based on their header or magic number.
 
 - Cri Video Files (USM) start with the header: `43 52 49 44` (`CRID`)
-- Cri Audio Files (HCA) contained in AFS2 have the header: `41 46 53 02` (`AFS2`)
+- Cri Audio Files (HCA) contained in AFS2 have the header: `41 46 53 32` (`AFS2`)
 - CPK Files have the header: `40 55 54 46` (`@UTF`)
 - UnityFS Files, but with 2 bytes in the header: `AB 00`, which need to be removed for proper usage.
 
@@ -69,7 +69,7 @@ A series of PowerShell scripts have been developed to classify the files. These 
 ```
 - For AFS2 Files (.afs2)
 ```powershell
-Get-ChildItem -File -Recurse  |  ForEach-Object {if (-join(Get-Content -Encoding Byte -TotalCount 4 -Path $_.FullName | ForEach-Object { $_.ToString("X2") }) -eq "41465302" ) {Rename-Item -Path $_.FullName -NewName ($_.BaseName + ".afs2") -Force ; Write-Host "Archivo procesado: $($_.FullName)"}}
+Get-ChildItem -File -Recurse  |  ForEach-Object {if (-join(Get-Content -Encoding Byte -TotalCount 4 -Path $_.FullName | ForEach-Object { $_.ToString("X2") }) -eq "41465332" ) {Rename-Item -Path $_.FullName -NewName ($_.BaseName + ".afs2") -Force ; Write-Host "Archivo procesado: $($_.FullName)"}}
 ```
 - For UnityFS Files (.unity)
 ```powershell
